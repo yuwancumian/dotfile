@@ -1,0 +1,22 @@
+[alias]
+  st = status 
+  co = checkout
+  br = branch
+  mg = merge
+  ci = commit
+  ds = diff --staged
+  dt = difftool
+  mt = mergetool
+  last = log -1 HEAD
+  latest = for-each-ref --sort=-committerdate --format=\"%(committername)@%(refname:short) [%(committerdate:short)] %(contents)\"
+  ls = log --pretty=format:\"%C(yellow)%h %C(blue)%ad %C(red)%d %C(reset)%s %C(green)[%cn]\" --decorate --date=short
+  hist = log --pretty=format:\"%C(yellow)%h %C(red)%d %C(reset)%s %C(green)[%an] %C(blue)%ad\" --topo-order --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	quotepath = false
